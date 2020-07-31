@@ -1,14 +1,13 @@
-package stringmodel
+package gostring
 
 import (
 	"fmt"
-	"github.com/newgolibs/gostring"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 var (
-	str_obj *gostring.Stringmodel
+	str_obj *Stringmodel
 )
 
 /**
@@ -16,7 +15,7 @@ var (
 */
 func TestAppend(t *testing.T) {
 	old_str := "xxx"
-	str_obj = gostring.NewStringmodel(old_str)
+	str_obj = NewStringmodel(old_str)
 	fmt.Printf("%+v\n", str_obj)
 	// 断言 : 字符串赋值成功
 	assert.Equal(t, old_str, str_obj.Getvalue())
@@ -32,7 +31,7 @@ func TestAppend(t *testing.T) {
 */
 func TestToupcase(t *testing.T) {
 	old_str := "xxx"
-	str_obj = gostring.NewStringmodel(old_str)
+	str_obj = NewStringmodel(old_str)
 	str_obj.Toupcase()
 	fmt.Printf("%+v\n", str_obj)
 	// 断言:字符串全部变成大写了
@@ -44,7 +43,7 @@ func TestToupcase(t *testing.T) {
 */
 func TestTolowercase(t *testing.T) {
 	old_str := "AbC"
-	str_obj = gostring.NewStringmodel(old_str)
+	str_obj = NewStringmodel(old_str)
 	str_obj.Tolowercase()
 	fmt.Printf("%+v\n", str_obj)
 	// 断言:字符串全部变成小写了
@@ -56,7 +55,7 @@ func TestTolowercase(t *testing.T) {
 */
 func TestTrim_默认指定去掉空格(t *testing.T) {
 	old_str := "   AbC    "
-	str_obj = gostring.NewStringmodel(old_str)
+	str_obj = NewStringmodel(old_str)
 	fmt.Printf("%+v\n", str_obj)
 	str_obj.Trim()
 	fmt.Printf("%+v\n", str_obj)
@@ -68,7 +67,7 @@ func TestTrim_默认指定去掉空格(t *testing.T) {
 去掉头尾指定的字符串,默认去掉空格
 */
 func TestTrim_用户自己指定要去除的内容(t *testing.T) {
-	str_obj2 := gostring.NewStringmodel("AbbbbbA")
+	str_obj2 := NewStringmodel("AbbbbbA")
 	fmt.Printf("%+v\n", str_obj2)
 	str_obj2.
 		SetTrimcutset("A").
@@ -83,7 +82,7 @@ func TestTrim_用户自己指定要去除的内容(t *testing.T) {
 */
 func TestUcfirst(t *testing.T)  {
 	old_str := "hello how are you"
-	str_obj = gostring.NewStringmodel(old_str)
+	str_obj = NewStringmodel(old_str)
 	str_obj.Ucfirst()
 	fmt.Printf("%+v\n", str_obj)
 	assert.Equal(t,"Hello how are you",str_obj.Invoke())

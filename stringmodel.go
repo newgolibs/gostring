@@ -3,42 +3,15 @@ package gostring
 import (
 	"strings"
 )
-
-type Stringmodel struct {
-	Value string
-	// 去掉头尾的字符串
-	trimcutset string
-	first      bool
-}
-
+/**
+构造函数
+ */
 func NewStringmodel(s string) *Stringmodel {
-	s2 := &Stringmodel{Value: s}
-	s2.trimcutset = " "
-	return s2
-}
-
-/**
-获取字符串的值
-*/
-func (this *Stringmodel) Getvalue() string {
-	return this.Value
-}
-
-/**
-初始化字符串的值
-*/
-func (this *Stringmodel) Setvalue(s string) *Stringmodel {
-	this.Value = s
-	return this
-}
-
-func (this *Stringmodel) GetTrimcutset() string {
-	return this.trimcutset
-}
-
-func (this *Stringmodel) SetTrimcutset(trimcutset string) *Stringmodel {
-	this.trimcutset = trimcutset
-	return this
+	Stringmodel_obj := new(Stringmodel)
+	Stringmodel_obj.Value = s
+	// 默认字符串trim的字符内容是空格
+	Stringmodel_obj.trimcutset = " "
+	return Stringmodel_obj
 }
 
 /**
